@@ -1,9 +1,12 @@
 from django.shortcuts import render
+from frontend.models import Categoria
 
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html')
+    categorias = Categoria.objects.all()
+    datos = {'listaCategorias': categorias}
+    return render(request, 'index.html', datos)
 
 def nosotros(request):
     return render(request, 'nosotros.html')
