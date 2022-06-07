@@ -1,12 +1,29 @@
 from django.shortcuts import render
-from frontend.models import Categoria
+from frontend.models import Categoria, Producto, Foto
 
 # Create your views here.
 
 def index(request):
-    categorias = Categoria.objects.all()
-    datos = {'listaCategorias': categorias}
-    return render(request, 'index.html', datos)
+    
+    #datosCategorias = Categoria.objects.all()
+
+    #datos = {"categorias": datosCategorias}
+
+    fotos = Foto.objects.all()
+
+    datos = {'fotos': fotos} 
+
+    return render(request, 'index.html', datos) #par ordenado de atributo y valor que se van a pasar a la vista
+
+def productos(request, codCategoria):
+
+    v_categoria=Categoria.objects.get(idCategoria=codCategoria)
+
+    v_productos=v_categoria.productos.all()
+
+    datos={"nombreCategoria:":v_categoria.nombreCategoria, "productos":v_productos}
+    return render(request, 'verProductos.html', datos)
+
 
 def nosotros(request):
     return render(request, 'nosotros.html')

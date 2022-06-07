@@ -79,8 +79,10 @@
                 </div>
             </header>
   
-        <img src="{% static './Imagenes/Aerith_house.png' %}">
-
+        {% for foto in fotos %}
+        {{foto.descripcion}}
+        <img src="{% static './Imagenes/' %}{{foto.nombreArchivo}}">
+        {% endfor %}
 
             
     <!--Footer-->
