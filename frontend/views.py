@@ -4,7 +4,9 @@ from frontend.models import Categoria, Producto, Foto
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html')
+    fotos = Foto.objects.all()
+    datos = {'fotos': fotos} # par ordenado de atributo y valor que se van a pasara a la vista
+    return render(request, 'index.html',datos)
 
 def nosotros(request):
     return render(request, 'nosotros.html')
