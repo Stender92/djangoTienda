@@ -13,3 +13,13 @@ class Producto(models.Model):
     nombreProducto = models.CharField(max_length=100, verbose_name='Nombre Producto')
     precioProducto = models.IntegerField(verbose_name='Precio Producto')
     idCategoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+
+class Foto(models.Model):
+    idFoto = models.IntegerField(primary_key=True, verbose_name='ID Foto')
+    nombreFoto = models.CharField(max_length=100, verbose_name='Nombre Foto')
+    nombreArchivo = models.CharField(max_length=256, verbose_name='Nombre Archivo')
+    descripcion = models.CharField(max_length=500, verbose_name='Descripcion')
+    fechaPublicacion = models.DateField(verbose_name='Fecha Publicacion')
+
+    def __str__(self):
+        return self.nombreFoto
