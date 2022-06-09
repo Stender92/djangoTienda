@@ -12,7 +12,9 @@ class Categoria(models.Model):
 class Producto(models.Model):
     idProducto = models.IntegerField(primary_key=True, verbose_name='ID Producto')
     nombreProducto = models.CharField(max_length=100, verbose_name='Nombre Producto')
+    nombreArchivo = models.CharField(max_length=256, verbose_name='Nombre Archivo')
     precioProducto = models.IntegerField(verbose_name='Precio Producto')
+    ratingProducto = models.FloatField(verbose_name='Rating Producto')
     idCategoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -27,3 +29,4 @@ class Foto(models.Model):
     def __str__(self):
         return self.nombreFoto
 # ------------------------------------------------------------------------------------------------------------------------------------- #
+

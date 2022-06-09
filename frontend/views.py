@@ -15,7 +15,9 @@ def inicio(request):
     return render(request, 'index.html')
 
 def aspersores(request):
-    return render(request, 'aspersores.html')
+    productos = Producto.objects.filter(idCategoria=1)
+    datos = {'productos': productos}
+    return render(request, 'aspersores.html', datos)
 
 def carrito(request):
     return render(request, 'carrito.html')
