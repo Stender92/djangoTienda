@@ -81,7 +81,7 @@
   
         {% for foto in fotos %}
         {{foto.descripcion}}
-        <img src="{% static './Imagenes/' %}{{foto.nombreArchivo}}">
+        <img src="{% static './Imagenes/' %}{{foto.nombreArchivo}}" height="300" width="200">
         {% endfor %}
 
             

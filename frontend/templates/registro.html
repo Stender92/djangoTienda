@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "icon" href = 
+        "https://www.corresponsables.com/sites/default/files/orange-plantara-arbol-por-cada-movil-reciclado.png" 
+        type = "image/x-icon">
+    <title>Nuevo Edén</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{% static 'estilos.css'%}" type="text/css" rel="Stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="{% static 'css/styles.css'%}" rel="stylesheet" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+
+    <body>
+        <!--NavBar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">Nuevo Edén</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Jardineria</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="semillas.html">Semillas</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="fertilizante.html">Fertilizantes</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="macetas.html">Macetas</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Herramientas</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="aspersores.html">Aspersores</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="tijeras.html">Podadoras</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="pistolas.html">Pistola de Riego</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="suscripciones.html">Suscripciones</a></li>
+                    </ul>
+                    <form class="d-flex" method="get" action="carrito.html">
+                        <button class="btn btn-outline-dark" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
+                            Carrito
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        </button>
+                    </form>
+                    <form class="d-flex" method="get" action="login.html">
+                        <button class="btn btn-outline-dark" type="submit">
+                            <i class="bi bi-person-circle"></i>
+                            Iniciar Sesión
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+            <!--Login-->
+            <div class="container">
+                <div class="row">
+                    <div class="col">               
+                        <div class="shadow-lg p-3 mb-5 mt-4 bg-body rounded">                                    
+                            <div class="p-3 mb-2 bg-primary bg-gradient fw-bold text-white text-center">Crear cuenta de usuario </div>
+                            <form class="row g-3 needs-validation" novalidate>
+                                <div class="form-group">
+                                <label for="nombre" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Ingresa tu Email" required>
+                                <!-- Mensajes para validación   -->
+                                <div class="valid-feedback">¡Campo válido!</div>
+                                <div class="invalid-feedback">Debe completar los datos.</div>
+        
+                                </div>
+                                <div class="form-group">
+                                <label for="apellido" class="form-label">Nombre de usuario</label>
+                                <input type="text" class="form-control" id="name" placeholder="Ingresa un nombre de usuario" required>
+                                <!-- Mensajes para validación   -->
+                                <div class="valid-feedback">¡Campo válido!</div>
+                                <div class="invalid-feedback">Debe completar los datos.</div>
+        
+                                </div>                                             
+                                <div class="form-group">
+                                    <label for="apellido" class="form-label">Contraseña</label>
+                                    <input type="password" class="form-control" id="pass1" placeholder="Ingresa una contraseña" required>
+                                    <!-- Mensajes para validación   -->
+                                    <div class="valid-feedback">¡Campo válido!</div>
+                                    <div class="invalid-feedback">Debe completar los datos.</div>
+                                </div> 
+                                
+                                <div class="form-group">
+                                    <label for="apellido" class="form-label">Confirmar Contraseña</label>
+                                    <input type="password" class="form-control" id="pass2" placeholder="Confirma tu contraseña" required>
+                                    <!-- Mensajes para validación   -->
+                                    <div class="valid-feedback">¡Campo válido!</div>
+                                    <div class="invalid-feedback">Debe completar los datos.</div>
+                                </div> 
+                                <button class="btn btn-warning fw-bold" type="submit">Registrarse</button>                       
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!--Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Nuevo Edén 2022</p></div>
+        </footer>
+        </div>
+
+
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'js/scripts.js'%}"></script>
+    
+        <script>        
+            (function () {
+              'use strict'
+            
+              // Obtener todos los formularios a los que queremos aplicar estilos de validación de Bootstrap personalizados
+              var forms = document.querySelectorAll('.needs-validation')
+            
+              //Recorremos los forms y evitamos en envío sin validacion
+              Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                  form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                      event.preventDefault()
+                      event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                  }, false)
+                })
+            })()
+                </script>
+
+    </body>
+</html>
