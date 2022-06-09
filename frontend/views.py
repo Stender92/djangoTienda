@@ -4,9 +4,26 @@ from frontend.models import Categoria, Producto, Foto
 # Create your views here.
 
 def index(request):
+    
+    #datosCategorias = Categoria.objects.all()
+
+    #datos = {"categorias": datosCategorias}
+
     fotos = Foto.objects.all()
-    datos = {'fotos': fotos} # par ordenado de atributo y valor que se van a pasara a la vista
-    return render(request, 'index.html',datos)
+
+    datos = {'fotos': fotos} 
+
+    return render(request, 'index.html', datos) #par ordenado de atributo y valor que se van a pasar a la vista
+
+def productos(request, codCategoria):
+
+    v_categoria=Categoria.objects.get(idCategoria=codCategoria)
+
+    v_productos=v_categoria.productos.all()
+
+    datos={"nombreCategoria:":v_categoria.nombreCategoria, "productos":v_productos}
+    return render(request, 'verProductos.html', datos)
+
 
 def nosotros(request):
     return render(request, 'nosotros.html')
@@ -15,9 +32,7 @@ def inicio(request):
     return render(request, 'index.html')
 
 def aspersores(request):
-    productos = Producto.objects.filter(idCategoria=1)
-    datos = {'productos': productos}
-    return render(request, 'aspersores.html', datos)
+    return render(request, 'aspersores.html')
 
 def carrito(request):
     return render(request, 'carrito.html')
