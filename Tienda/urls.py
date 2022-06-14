@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path 
 from frontend.views import index, nosotros, inicio, aspersores, carrito, fertilizante, login, macetas, pistolas, productos, registro, semillas, suscripciones, tijeras, productos
-from back.views import indexBack, loginBack, validarUsuario
+from back.views import loginBack, validarUsuario, indexBack
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),

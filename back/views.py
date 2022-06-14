@@ -1,5 +1,4 @@
-import email
-from http.client import HTTPResponse
+
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from .models import Usuario
@@ -9,22 +8,22 @@ def loginBack(request):
     return render(request, 'login_back.html')
 
 def validarUsuario(request):
-    #Recibimos los datos desde el formulario que fueron pasados via POST
-    
+    #recibimos los datos desde el formulario que fueron 
+    #pasados via POST
     v_email=request.POST.get('email')
     v_password=request.POST.get('password')
 
     try:
-    #Buscamos el usuario en la bases de datos
-
+    #Buscamos el usuario en la base de datos
         usu=Usuario.objects.get(email=v_email, password=v_password)
-
-        if usu: 
+    #return HttpResponse("LALALA")
+        if usu:
             request.session['usuario'] = v_email
-            return redirect('indexBack/')
+            return redirect('indexback/')
 
     except:
         return redirect('loginBack/')
+
 
 
 def indexBack(request):
