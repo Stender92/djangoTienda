@@ -79,9 +79,13 @@
                 </div>
             </header>
   
-        <img src="{% static './Imagenes/Aerith_house.png' %}">
+        {% for foto in fotos %}
+        {{foto.descripcion}}
+        <img src="{% static './Imagenes/' %}{{foto.nombreArchivo}}" height="300" width="200">
+        {% endfor %}
 
-        <!--Footer-->
+            
+    <!--Footer-->
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Nuevo Edén 2022 </br>Aerith's house (Final Fantasy 7) By Clémence Maurer</p></div>
         </footer>
