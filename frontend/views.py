@@ -53,7 +53,9 @@ def suscripciones(request):
     return render(request, 'suscripciones.html')
 
 def tijeras(request):
-    return render(request, 'tijeras.html')
+    productoscat = Producto.objects.filter(categoria__nombreCategoria='Tijeras')
+    datos = {"productos": productoscat}
+    return render(request, 'tijeras.html', datos)
 
 
 
