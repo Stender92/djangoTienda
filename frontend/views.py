@@ -55,6 +55,9 @@ def suscripciones(request):
 def tijeras(request):
     return render(request, 'tijeras.html')
 
+def indexBack(request):
+    return render(request, 'index_back.html')
+
 
 
 
