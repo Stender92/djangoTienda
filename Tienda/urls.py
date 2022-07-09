@@ -1,6 +1,6 @@
 from django.contrib import admin
-from django.urls import path 
-from frontend.views import index, nosotros, inicio, aspersores, carrito, fertilizante, login, macetas, pistolas, productos, registro, semillas, suscripciones, tijeras, productos
+from django.urls import path, include
+from frontend.views import index, nosotros, inicio, aspersores, carrito, fertilizante, login, macetas, pistolas, productos, registro, semillas, suscripciones, tijeras, productos, añadir, guardarProducto, eliminarProducto, buscarProducto, guardarProductoModificado
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -17,5 +17,12 @@ urlpatterns = [
     path('semillas.html', semillas),
     path('suscripciones.html', suscripciones),
     path('tijeras.html', tijeras),
-    path('productos/<codCategoria>', productos)
+    path('productos/<codCategoria>', productos),
+    path('añadir.html', añadir),
+    path('guardarProducto/', guardarProducto),
+    path('guardarProductoCambiado/', guardarProductoModificado),
+    path('eliminarProducto/<p_idProducto>', eliminarProducto),
+    path('modificarProducto/<p_idProducto>', buscarProducto),
+    path('api/', include('api.urls')),
+
 ]

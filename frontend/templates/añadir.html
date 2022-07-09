@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de la página</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html">Nuevo Edén</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Jardineria</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="semillas.html">Semillas</a></li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li><a class="dropdown-item" href="fertilizante.html">Fertilizantes</a></li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li><a class="dropdown-item" href="macetas.html">Macetas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Herramientas</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="aspersores.html">Aspersores</a></li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li><a class="dropdown-item" href="tijeras.html">Podadoras</a></li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li><a class="dropdown-item" href="pistolas.html">Pistola de Riego</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="suscripciones.html">Suscripciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="añadir.html">API</a></li>
+                </ul>
+                <form class="d-flex" method="get" action="carrito.html">
+                    <button class="btn btn-outline-dark" type="submit">
+                        <i class="bi-cart-fill me-1"></i>
+                        Carrito
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                    </button>
+                </form>
+                <form class="d-flex" method="get" action="login.html">
+                    <button class="btn btn-outline-dark" type="submit">
+                        <i class="bi bi-person-circle"></i>
+                        Iniciar Sesión
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <h1>Ingreso de datos productos</h1>
+        </div>
+        <br>
+        
+        <div class="row">
+            <form method="post" action="guardarProducto/" id="formulario">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="idproducto">ID producto</label>
+                    <input type="number" id="idproducto" name="idproducto" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Nombre producto</label>
+                    <input type="text" id="nombre" name="nombre" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="stock">Stock producto</label>
+                    <input type="number" id="stock" name="stock" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="precio">Precio producto</label>
+                    <input type="number" id="precio" name="precio" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="categoria">Categoria producto</label>
+                    <input type="text" id="categoria" name="categoria" class="form-control">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" id="enviar" value="Enviar">
+                    <input type="reset" class="btn btn-secondary" id="limpiar" value="Limpiar">
+            </div>
+            </form>
+            
+        <br><br>
+        <div class="row">
+            <table class="table table-stripped">
+                <th>ID producto</th>
+                <th>Nombre</th>
+                <th>Stock</th>
+                <th>Precio</th>
+                <th>Categoria</th>
+                <th colspan="2">Acciones</th>
+                {% for p in productos%}
+                <tr>
+                    <td>{{p.idProducto}}</td>
+                    <td>{{p.nombre}}</td>
+                    <td>{{p.stock}}</td>
+                    <td>{{p.precio}}</td>
+                    <td>{{p.categoria}}</td>
+                    <td><a href="eliminarProducto/{{p.idProducto}}">Eliminar</a></td>
+                    <td><a href="modificarProducto/{{p.idProducto}}">Modificar</a></td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+
+    </div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

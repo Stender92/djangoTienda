@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'frontend',
     'back',
     'basedatos',
+    'api',
     
 ]
 
