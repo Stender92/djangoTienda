@@ -32,22 +32,30 @@ def carrito(request):
     return render(request, 'carrito.html')
 
 def fertilizante(request):
-    return render(request, 'fertilizante.html')
+    productoscat = Producto.objects.filter(categoria__nombreCategoria='Fertilizantes')
+    datos = {"productos": productoscat}
+    return render(request, 'fertilizante.html', datos)
 
 def login(request):
     return render(request, 'login.html')
 
 def macetas(request):
-    return render(request, 'macetas.html')
+    productoscat = Producto.objects.filter(categoria__nombreCategoria='Macetas')
+    datos = {"productos": productoscat}
+    return render(request, 'macetas.html', datos)
 
 def pistolas(request):
-    return render(request, 'pistolas.html')
+    productoscat = Producto.objects.filter(categoria__nombreCategoria='Pistolas de Riego')
+    datos = {"productos": productoscat}
+    return render(request, 'pistolas.html', datos)
 
 def registro(request):
     return render(request, 'registro.html')
 
 def semillas(request):
-    return render(request, 'semillas.html')
+    productoscat = Producto.objects.filter(categoria__nombreCategoria='Semillas')
+    datos = {"productos": productoscat}
+    return render(request, 'semillas.html', datos)
 
 def suscripciones(request):
     return render(request, 'suscripciones.html')
@@ -66,6 +74,8 @@ def guardarProducto(request):
     
     v_idproducto=request.POST.get('idProducto')
     v_nomproducto=request.POST.get('nombre')
+    v_archivoImg=request.POST.get('archivoImg')
+    v_descripcion=request.POST.get('descripcion')
     v_preproducto=request.POST.get('precio')
     v_stockproducto=request.POST.get('stock')
     v_categoria=request.POST.get('categoria')
@@ -73,6 +83,8 @@ def guardarProducto(request):
     nuevo=Producto()
     nuevo.idProducto=v_idproducto
     nuevo.nombre=v_nomproducto
+    nuevo.archivoImg=v_archivoImg
+    nuevo.descripcion=v_descripcion
     nuevo.stock=v_stockproducto
     nuevo.precio=v_preproducto
     nuevo.categoria=Categoria.objects.get(idCategoria=v_categoria)
@@ -95,6 +107,8 @@ def buscarProducto(request, p_idProducto):
 def guardarProductoModificado(request):
     v_idproducto=request.POST.get('idproducto')
     v_nomproducto=request.POST.get('nombre')
+    v_archivoImg=request.POST.get('archivoImg')
+    v_descripcion=request.POST.get('descripcion')
     v_preproducto=request.POST.get('precio')
     v_stockproducto=request.POST.get('stock')
 
@@ -102,6 +116,8 @@ def guardarProductoModificado(request):
 
     if(buscado):
         buscado.nombre=v_nomproducto
+        buscado.archivoImg=v_archivoImg
+        buscado.descripcion=v_descripcion
         buscado.stock=v_stockproducto
         buscado.precio=v_preproducto
 

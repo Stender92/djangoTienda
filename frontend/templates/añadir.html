@@ -75,6 +75,14 @@
                     <input type="text" id="nombre" name="nombre" class="form-control">
                 </div>
                 <div class="form-group">
+                    <label for="archivoImg">Imagen producto (debe estar en la carpeta Imagenes)</label>
+                    <input type="text" id="archivoImg" name="archivoImg" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="descripcion">Descripcion producto</label>
+                    <input type="text" id="descripcion" name="descripcion" class="form-control">
+                </div>
+                <div class="form-group">
                     <label for="stock">Stock producto</label>
                     <input type="number" id="stock" name="stock" class="form-control">
                 </div>
@@ -83,8 +91,8 @@
                     <input type="number" id="precio" name="precio" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="categoria">Categoria producto</label>
-                    <input type="text" id="categoria" name="categoria" class="form-control">
+                    <label for="categoria">Categoria producto 1: Semillas 2: Tijeras 3: Aspersores 4: Fertilizantes 5: Macetas 6: Pistola de riego</label>
+                    <input type="number" id="categoria" name="categoria" class="form-control">
                 </div>
                 <br>
                 <div class="form-group">
@@ -98,6 +106,8 @@
             <table class="table table-stripped">
                 <th>ID producto</th>
                 <th>Nombre</th>
+                <th>Imagen</th>
+                <th>Descripcion</th>
                 <th>Stock</th>
                 <th>Precio</th>
                 <th>Categoria</th>
@@ -106,6 +116,8 @@
                 <tr>
                     <td>{{p.idProducto}}</td>
                     <td>{{p.nombre}}</td>
+                    <td><img src="static/Imagenes/{{p.archivoImg}}" width="100" height="100"></td>
+                    <td>{{p.descripcion}}</td>
                     <td>{{p.stock}}</td>
                     <td>{{p.precio}}</td>
                     <td>{{p.categoria}}</td>
