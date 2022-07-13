@@ -125,6 +125,9 @@ def guardarProductoModificado(request):
         return redirect('/')
 
 
+def indexBack(request):
+    return render(request, 'index_back.html')
+
 
 
 
